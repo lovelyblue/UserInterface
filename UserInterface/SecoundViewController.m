@@ -19,12 +19,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    CGRect rect = _uiNavigationBar.frame;
     UIImage* previousImage = [UIImage imageNamed:@"previousButton2.png"];
-//    [previousImage sc] size = CGSizeMake(15.0f, 10.0f);
-    UIBarButtonItem* leftButton = [[UIBarButtonItem alloc] initWithImage:previousImage style:UIBarButtonItemStylePlain target:self action:@selector(previousPage)];
-//    [[self navigationItem] setLeftBarButtonItem:leftButton];
-//    _uiNavigationBar.n
-    _uiNavigationItem.leftBarButtonItem=leftButton;
+
+    UIImage* preImage = [self resizeImage:previousImage scaleToSize:CGSizeMake(60.0f, rect.size.height)];
+    
+    UIBarButtonItem* leftButton = [[UIBarButtonItem alloc] initWithImage:preImage style:UIBarButtonItemStylePlain target:self action:@selector(previousPage)];
+    UIBarButtonItem* leftButtonStyle2= [[UIBarButtonItem alloc] initWithTitle:@"上一頁" style:UIBarButtonItemStylePlain target:nil action:@selector(previousPage)];
+    _uiNavigationItem.leftBarButtonItem=leftButtonStyle2;//leftButton;
+//    _uiNavigationItem.leftBarButtonItem.title=@"上一頁";
+    
+    _uiNavigationBar.topItem.title=@"我在第二頁";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,6 +40,27 @@
 -(void)previousPage
 {
     NSLog(@"PreviousPage Button Pressed");
+//    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    
+}
+
+-(UIImage*)resizeImage:(UIImage*)originalImage scaleToSize:(CGSize)size
+{
+    if (CGSizeEqualToSize(originalImage.size, size)) {
+        return originalImage;
+    }
+    //create drawing context
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
+    
+    //draw
+    [originalImage drawInRect:CGRectMake(0.0f, 0.0f, size.width, size.height)];
+    
+    //capture
+    UIImage* image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    //return image
+    return image;
 }
 /*
 #pragma mark - Navigation

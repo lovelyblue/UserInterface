@@ -26,7 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-//    [NSTimer scheduledTimerWithTimeInterval:0.2f target:self selector:@selector(runningProgress) userInfo:nil repeats:YES];
+#pragma mark ---Add Timer to scheduled---
+    [NSTimer scheduledTimerWithTimeInterval:0.2f target:self selector:@selector(runningProgress) userInfo:nil repeats:YES];
 }
 
 - (void)didReceiveMemoryWarning {
