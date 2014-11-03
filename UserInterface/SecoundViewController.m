@@ -11,7 +11,7 @@
 @interface SecoundViewController ()
 @property (weak, nonatomic) IBOutlet UINavigationBar *uiNavigationBar;
 @property (weak, nonatomic) IBOutlet UINavigationItem *uiNavigationItem;
-
+//@property (weak, nonatomic) IBOutlet UIBarButtonItem *uiRightButton;
 @end
 
 @implementation SecoundViewController
@@ -26,8 +26,7 @@
     
     UIBarButtonItem* leftButton = [[UIBarButtonItem alloc] initWithImage:preImage style:UIBarButtonItemStylePlain target:self action:@selector(previousPage)];
     UIBarButtonItem* leftButtonStyle2= [[UIBarButtonItem alloc] initWithTitle:@"上一頁" style:UIBarButtonItemStylePlain target:nil action:@selector(previousPage)];
-    _uiNavigationItem.leftBarButtonItem=leftButtonStyle2;//leftButton;
-//    _uiNavigationItem.leftBarButtonItem.title=@"上一頁";
+//    _uiNavigationItem.leftBarButtonItem=leftButton;//leftButtonStyle2;
     
     _uiNavigationBar.topItem.title=@"我在第二頁";
 }
@@ -41,6 +40,7 @@
 {
     NSLog(@"PreviousPage Button Pressed");
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    [self performSegueWithIdentifier:@"backto1" sender:self];
     
 }
 

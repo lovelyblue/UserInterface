@@ -107,6 +107,7 @@
                             <constraint firstItem="aSG-by-kvg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="wfE-sb-Oms"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="lblSegmentValue" destination="8ve-6C-fLe" id="6zz-95-Pyt"/>
                         <outlet property="lblSliderValue" destination="cVf-gw-C19" id="EQY-Vz-wjf"/>
@@ -134,7 +135,14 @@
                             <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="arX-ro-7YR">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="rgo-cB-IQ8"/>
+                                    <navigationItem title="Title" id="9bE-2j-PUn">
+                                        <barButtonItem key="leftBarButtonItem" title="PreviousPage" id="Igu-Zh-IZh">
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="show" identifier="backto1" id="R3j-k2-Gmx"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Previous Page" id="jVF-md-nVq"/>
+                                    </navigationItem>
                                 </items>
                                 <variation key="widthClass=compact" ambiguous="YES">
                                     <rect key="frame" x="0.0" y="0.0" width="400" height="44"/>
@@ -147,18 +155,17 @@
                             <constraint firstItem="arX-ro-7YR" firstAttribute="leading" secondItem="gyB-uX-Fjm" secondAttribute="leadingMargin" constant="-16" id="ugf-w8-ecN"/>
                         </constraints>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="jVF-md-nVq"/>
-                    </toolbarItems>
+                    <toolbarItems/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="uiNavigationBar" destination="arX-ro-7YR" id="fyG-ea-9nK"/>
-                        <outlet property="uiNavigationItem" destination="rgo-cB-IQ8" id="QEg-vq-hZT"/>
+                        <outlet property="uiNavigationItem" destination="9bE-2j-PUn" id="gKe-Ux-4z4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ThU-KE-MK3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1250" y="464"/>
+            <point key="canvasLocation" x="947" y="333"/>
         </scene>
     </scenes>
 </document>
